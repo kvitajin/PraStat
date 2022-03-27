@@ -1,0 +1,129 @@
+---
+title: "Domácí úkol 2P"
+author: "Jindřich Kvita (kvi0029)"
+output:
+  pdf_document:
+    latex_engine: xelatex
+lang: cs
+documentclass: scrreprt
+header-includes: \usepackage[makeroom]{cancel}
+---
+
+
+# Úloha 1
+
+> Překupník nabízí ve svém internetovém obchodě respirátory od výrobce ze země Růžového draka. Z celkové produkce tohoto výrobce je 22  % respirátorů vadných (rozlepují se ve švech, odpadávají gumičky apod.). Pro opatrné zákazníky má překupník v nabídce testovací balíčky po 4 kusech respirátorů. Náhodnou veličinou X popíšeme počet respirátorů v testovacím balíčku, které nemají žádnou vadu.
+>
+> a. Určete pravděpodobnostní a distribuční funkci této náhodné veličiny. Pravděpodobnostní funkci zapište do tabulky a distribuční funkci zadejte předpisem.
+
+### Pravděpodobnostní funkce:
+
+  lze vypočíst pomocí: C(4,x) * 0,22^x * 0,78^(4-x) kde za x dosadíme počet kusů, tj. Postupně 0-4. Číslo 0,78 je počet procent bez vady a 0,22 s vadou. Následně dostaneme pravděpodobnostní funkci dostaneme jako tabulku:
+
+  |    x     |    0   |   1    |   2    |   3    |   4    | součet |
+  |:--------:|:------:|:------:|:------:|:------:|:------:|:------:|
+  | P(X = x) | 0.370  | 0.418  | 0.177  | 0.033  | 0.002  |   1    |
+
+### Distribuční funkce
+
+$$
+F(x) = \begin{cases}
+0 & x \in (-\infty; 0\rangle \\
+`r 0.370` & x \in (0; 1\rangle \\
+`r 0.370 +0.418` & x \in (1; 2\rangle \\
+`r 0.370 +0.418+0.177` & x \in (2; 3\rangle \\
+`r 0.370 +0.418+0.177+0.033` & x \in (3; 4\rangle \\
+`r 0.370 +0.418+0.177+0.033+0.002` & x \in (4; \infty)
+\end{cases}
+$$
+
+> b. Určete střední hodnotu, rozptyl, směrodatnou odchylku náhodné veličiny X.
+
+  E(x)=0 * 0.370 +1 * 0.418+2 * 0.177+3 * 0.033+4 * 0.002 = 0.88
+
+  E(x^2)=0^2 *0.370 +1^2 *0.418+2^2 *0.177+3^2 *0.033+4^2 *0.002= 1.455
+
+  D(x)=E(x^2 )-(E(x))^2 = 2.235ks^2
+
+  sigma.x = sqrt(D(x))= 1.49505
+
+  Střední hodnota je 0.88, rozptyl 2.235ks^2 , a směrodatná odchylka 1.495.
+
+> c. Jaká je pravděpodobnost, že v testovacím balíčku je nejméně 1 respirátor vadný?
+
+  Díky předešlé otázce již víme pravdivostní hodnoty pro všechny hodnoty, tj stačí odečíst P(0) od 1 a dostáváme pravděpodobnost 0.630.
+
+> Občas se nespokojený zákazník rozhodne pro reklamaci a (celý) balíček překupníkovi vrátí. Při vrácení balíčku v rámci reklamace překupník ztrácí 7 Kč na vadný vrácený respirátor. (S respirátory z vráceného balíčku, které jsou v pořádku, překupník ztráty nemá. Přidá je do jiných balení.)
+>
+> d. Vyjádřete ztrátu při reklamaci balíčku pomocí náhodné veličiny Z v závislosti na X. Určete střední hodnotu, rozptyl a směrodatnou odchylku veličiny Z. Při výpočtu využijte vlastnosti střední hodnoty a rozptylu.
+
+
+| z        |   0Kč   |  7Kč   |  14Kč  |  21Kč  |   28Kč | součet |
+----------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| P(X = x) | 0.370  | 0.418  | 0.177  | 0.033  | 0.002  |   1    |
+
+díky vlastnostem směrodatné odchylky bude výpočet jen vynásobením předešlého výsledku směrodatné odchylky číslem 7=>
+
+E(x)= 0.88 * 7= 6.16
+D(x)= = 2.235 * 7^2 =109.515
+sigma.x = sqrt(D(x))= 10.465
+
+> e. Určete modus veličiny Z. Hodnotu interpretujte.
+
+Dle pravděpodobnostní tabulky je nejčastěji vyskytující se hodnota (tj modus) hodnota 7Kč, z toho vyplývá, že s největší pravděpodobností přijde prodejce o 7Kč
+
+
+# Úloha 2
+
+> Spojitá náhodná veličina X je popsána distribuční funkcí
+>
+> $F(x)=\begin{cases} 0 & \text{pro }\, x\leq-2\cr c(x−\frac{x^2}{2}+4) & \text{pro }\, -2 < x\leq 0\cr 1 & \text{pro }\, x > 0 \cr \end{cases}$
+>
+> a. Určete hodnotu konstanty c a zapište F(x) po dosazení za konstantu c
+
+
+$$ c(x−\frac{x^2}{2}+4)' = c(1-x)$$
+
+Derivací distribuční funkce $F(x)$ získáme funkci hustoty pravděpodobnosti $f(x)$.
+
+$$
+\begin{aligned}
+f(x) &= \frac{\mathrm{d}F(x)}{\mathrm{d}x} \\
+f(x) &= \begin{cases}
+0 & x \leq -2 \\
+c(1-x) & -2 < x \leq 0 \\
+1 & x > 0
+\end{cases}
+\end{aligned}
+$$
+
+Protože obsah prostoru pod křívkou hustoty pravděpodobnosti musí být rovný 1, můžeme integrací a následným vyřešením rovnice získat hodnotu konstanty $c$.
+
+$$ \int_{-\infty}^{\infty} f(x) \mathrm{d}x = 1 $$
+
+$$
+\begin{aligned}
+\int_(-2)^0 c(1-x) \mathrm{d}x &= 1 \\
+\left[c-xc)\right]_(-2)^0 &= 1 \\
+(c-(-2)\cdot c)-(c-0 \cdot c) &= 1 \\
+2c&= 1 \\
+c &= \frac{1}{2} \\
+\end{aligned}
+$$
+
+Hodnota konstanty c je $\frac{1}{2}$. Výsledný tvar funkce $F(x)$ je:
+
+$$
+F(x)=\begin{cases} 0 & \text{pro }\, x\leq-2\cr \frac{x−\frac{x^2}{2}+4}{2} & \text{pro }\, -2 < x\leq 0\cr 1 & \text{pro }\, x > 0 \cr \end{cases}
+$$
+
+Dál jsem, bohužel, nestihl přepsat z papíru.
+
+> b. Určete funkci hustoty pravděpodobnosti  f(x) a načrtněte její graf.
+> c. Vypočtěte pravděpodobnosti P(−3≤X≤−12) a P(X>−12)
+> d. Vypočtěte číselné charakteristiky SNV X. (E(X)=?, D(X)=?, σX=?)
+> e. Určete 75% kvantil, x0,75=?
+> f. Pro SNV Y platí, že Y=5X+2. Vypočtěte pravděpodobnost P(Y<−3).
+
+
+

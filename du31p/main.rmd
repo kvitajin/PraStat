@@ -2,8 +2,8 @@
 title: "Domácí úkol 3P"
 author: "Jindřich Kvita (kvi0029)"
 output:
-pdf_document:
-latex_engine: xelatex
+    pdf_document:
+        latex_engine: xelatex
 lang: cs
 documentclass: scrreprt
 header-includes: \usepackage[makeroom]{cancel}
@@ -43,12 +43,14 @@ Pravděpodobnost, že bude potřebovat více, než tři pokusy, je 7.67%
 Zde se snažíme zjistit P(3<=X<6)
 což se dá zapsat jako P(X<=5)-P(X<2)
 v R zápisu:pnbinom(5-2, 2, 0.83) - pnbinom(3-2, 2, 0.83)
+
 Pravděpodobnost, že bude delfín potřebovat alespoň tři a nanejvýš 6 skoků je 7.32%
 
 > d) Po vystoupení je trenér s delfínem na tréninku, kde jej nechá provést 10 pokusů o provedení artistického kousku. Jaká je pravděpodobnost, že z 10 pokusů bude alespoň polovina úspěšných?
 
 Zde se jedná o pravděpodobnost P(X>5), což se dá přepsat jako 1-P(X<=4).
 pak poslouží funkce pnbinom(10-4, 4, 0.83)
+
 Delfínovi se s pravděpodobností 99.97% povede více, než 5 skoků z 10.
 
 # Úloha 2
@@ -126,6 +128,7 @@ Ze zadání: "V populaci České republiky je 10 % obyvatel Rh negativní". Z to
 Na vypočítání použijeme vzoreček 1-pnorm(90, mean = 85, sd=12)
 
 Nad hranicí krevního tlaku 90 mmHg je 33.8% dospělé populace.
+
 ![Vyznačený graf hustoty pravděpodobností](srafovano.png)
 
 > c) Určete hodnotu 8. decilu uvedené náhodné veličiny. Zakreslete ji do náčrtku distribuční funkce z bodu a) a slovně ji interpretujte.

@@ -1,0 +1,108 @@
+---
+title: "Domácí úkol 1P"
+author: "Jindřich Kvita (Kvi0029)"
+output: pdf_document
+lang: cs
+always_allow_html: true
+documentclass: scrreprt
+header-includes: \usepackage[makeroom]{cancel}
+---
+
+# Příprava prostředí
+```{r setup}
+P <- function(n) {
+  factorial(n)
+}
+
+V <- function(n, r) {
+  factorial(n) / factorial(n - r)
+}
+
+C <- function(n, r) {
+  factorial(n) / (factorial(n - r) * factorial(r))
+}
+
+P_s_opak <- function(...) {
+  factorial(sum(...)) / prod(lapply(..., factorial))
+}
+
+permutace_opak <- function(vec_n) {
+  n <- sum(vec_n)
+  res_temp<-factorial(n)
+  for(pocet in vec_n) {
+    res_temp<-res_temp/factorial(pocet)
+  }
+  return(res_temp)
+}
+
+V_s_opak <- function(n, r) {
+  n^r
+}
+
+C_s_opak <- function(n, r) {
+  C(n + r - 1, r)
+}
+```
+
+# Úloha 1
+
+> Kolika způsoby lze ze třídy, v níž je 10 dívek a 15 chlapců vybrat pětičlennou skupinu obsahující alespoň 1 dívku a alespoň 1 chlapce?
+
+Počet způsobů lze spočítat jako součet kombinací bez opakování.
+
+
+```{r}
+pocet_zpusobu <-
+        C(10, 4) * C(15, 1) +
+        C(10, 3) * C(15, 2) +
+        C(10, 2) * C(15, 3) +
+        C(10, 1) * C(15, 4)
+
+
+```
+
+Skupiny lze vybrat `r pocet_zpusobu` způsoby.
+
+# Úloha 2
+
+> Kolik existuje anagramů slova KRAKATICE takových, že v nich nejsou 2 stejná písmena těsně za sebou?
+
+Zde se jedná o permutaci všech bez omezení, od níž se následně odečtou možnosti, kdy jsou stejné znaky u sebe
+
+
+```{r}
+vsechny<-c(2,2,1,1,1,1,1)
+pismena_vedle_sebe<-c(1,1,1,1,1,1,1)
+
+pocet_zpusobu_anag <- (
+         permutace_opak(vsechny)-permutace_opak(pismena_vedle_sebe))
+```
+Anagramy lze složit `r pocet_zpusobu_anag` způsoby.
+
+
+# Úloha 3
+
+> V populaci je nemocí XY infikováno 10 % jedinců. Viditelné příznaky lze pozorovat u 80 % nakažených. Fyziologický stav nerozlišitelný od viditelných příznaků nemoci se objevuje u 5 % zdravých jedinců. Jaká je pravděpodobnost, že jedinec, který má příznaky nemoci, je infikován?
+
+
+
+# Úloha 4
+
+> Hladina vody v tankeru je kontrolována pomocí čtyř na sobě nezávislých spínačů stejného typu zapojených dle obrázku. Spínače mají být sepnuty při nízké hladině vody. Je-li hladina vody dostatečná, spínače by měly být vypnuty. Každý ze spínačů je s pravděpodobností 5 % v opačném stavu, než by měl být. Ve chvíli, kdy se propojí uzly A a B (tj. např. sepnou spínače 1 a 4), je vyhlášen poplach.
+
+ 1. S jakou pravděpodobností kontrolní systém (viz obrázek) selže a nevyhlásí poplach v případě, že v tankeru je nízká hladina vody?
+ 2. S jakou pravděpodobností kontrolní systém (viz obrázek) nevyhlásí falešný poplach, tj. poplach v případě, že v tankeru je dostatečná hladina vody?
+
+![Obrázek](img.png)
+##Zadání 1
+
+Problém se dá rozložit na dva podproblémy, kde si první paralelní spínače označíme jako \alpha a druhé jako \beta. Pak se dá úkol zaspsat jako:
+
+$$ P(\alpha)=P(S1∨S2)=1-P(\overline{S1}∧\overline{S2})=1-(0.95*0.95)=0.0975
+P(\beta)=P(S3∨S4)=1-P(\overline{S3}∧\overline{S4})=1-(0.95*0.95)=0.0975
+P(\alpha)*P(\beta)=0.0975*0.0975=0.0095 $$
+
+Pravděpodobnost, že systém selže a nevyhlásí poplach v případě nízké hladiny vody je 0.95%
+
+##Zadání 2
+Zde se jedná o doplněk k procenúm předešlého příkladu, tj 100-0.95= 99.05%.
