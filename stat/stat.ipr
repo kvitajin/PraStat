@@ -10,10 +10,14 @@
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="RGraphicsSettings">
-    <option name="height" value="540" />
+    <option name="height" value="522" />
     <option name="resolution" value="75" />
     <option name="version" value="2" />
-    <option name="width" value="960" />
+    <option name="width" value="567" />
+  </component>
+  <component name="RMarkdownGraphicsSettings">
+    <option name="globalResolution" value="75" />
+    <option name="version" value="2" />
   </component>
   <component name="RMarkdownSettings">
     <option name="renderProfiles">
@@ -26,6 +30,13 @@
             </RMarkdownRenderProfile>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../vsb-notebook/pstat/du1s/luk0125_du1s.rmd">
+          <value>
+            <RMarkdownRenderProfile>
+              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/../../vsb-notebook/pstat/du1s" />
+            </RMarkdownRenderProfile>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
@@ -34,5 +45,6 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

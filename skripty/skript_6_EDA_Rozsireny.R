@@ -59,7 +59,7 @@ data = read.csv2(file = "http://am-nas.vsb.cz/lit40/DATA/aku.csv")
 # Načtení a uložení datového souboru ve formátu xlsx z pracovního adresáře do datového rámce data
 # Používáme funkci z balíčku readxl, který jsme v úvodu rozbalili
 # Samotný xlsx soubor nesmí být otevřený, jinak spuštění importu hodí error
-data = read_excel("aku.xlsx", 
+data = read_excel("../data/aku.xlsx",
                   sheet = "Data",           # specifikace listu v xlsx souboru
                   skip = 3)                 # řádky, které je potřeba přeskočit
 
@@ -1036,3 +1036,4 @@ dataS$kap5_out[dataS$kap5>=horni_mez | dataS$kap5<=dolni_mez] = NA
 # Analytik může vždy říct, že odlehlá pozorování odstraňovat nebude, 
 # ale tuto informaci musí do zápisu o analýze uvést a patřičně zdůvodnit!!!
 
+pom

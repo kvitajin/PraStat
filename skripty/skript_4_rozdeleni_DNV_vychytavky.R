@@ -226,10 +226,12 @@ grid()
 #3.2
 1-phyper(84, 300*0.9,300-(300*0.9), 100)
 1-phyper(84, 300*0.9,300-(300*0.9), 100)
-
+pnbinom(5-2, 2, 0.83) - pnbinom(2-2, 2, 0.83)
 (1-phyper(89, 300*0.9, 300-(300*0.9), 100)) /(1-phyper(79, 300*0.9, 300-(300*0.9), 100))
 1-pbinom(84, 100, 0.9)
+1-pbinom(4, 10,  0.83)
 
+1-pbinom(84, 100, 0.9)
 #4
 x=(85-3*12):(85+3*12)
 
@@ -243,13 +245,21 @@ plot(x, hustota(x), type = "l", xlab = "krevni tlak (mmHg)")
 plot(x, df(x), type = "l", xlab = "krevni tlak (mmHg)")
 
 1-pnorm(90, mean = 85, sd=12)
-y=hustota(x)
+y=df(x)
 polygon(c(90, x[x > 90], max(x)), c(0, y[x > 90], 0), col = "gray")
 
 xfit = seq(min(dataS$kap5), max(dataS$kap5), length = 40)     # generování hodnot pro osu x
 yfit = dnorm(xfit, mean = mean(dataS$kap5), sd = sd(dataS$kap5))  # generování hodnot pro osu y
 lines(xfit, yfit, col = "black", lwd = 2)
 
+x=(85-3*12):(85+3*12)
+df = function (x){
+  pnorm(x, mean = 85, sd=12)
+}
+plot(x, df(x), type = "l", xlab = "krevni tlak (mmHg)")
+dec=qnorm(0.8,mean = 85,sd = 12)
+
+polygon(c(min(x), x[x < dec], dec),c(0, y[x < dec], 0), col = "gray")
 #dal ze skoly
 
 

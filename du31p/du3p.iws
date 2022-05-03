@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9ea10d3-d3f8-4ab7-a35b-e4eab936546a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../skripty/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/du3p.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/du3p.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/du3p.iws" beforeDir="false" afterPath="$PROJECT_DIR$/du3p.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/main.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.rmd" beforeDir="false" afterPath="$PROJECT_DIR$/main.rmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skripty/skript_4_rozdeleni_DNV_vychytavky.R" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/skript_4_rozdeleni_DNV_vychytavky.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skripty/skript_6_EDA_Rozsireny.R" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/skript_6_EDA_Rozsireny.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stat/.~lock.PS_DU1S_4S_zadani_2022.docx#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stat/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../stat/main.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stat/main.rmd" beforeDir="false" afterPath="$PROJECT_DIR$/../stat/main.rmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stat/stat.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/../stat/stat.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stat/stat.iws" beforeDir="false" afterPath="$PROJECT_DIR$/../stat/stat.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,13 +21,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectId" id="27eDR6r9IIW1UFMc4BR8zCABfBn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/main.pdf" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9ea10d3-d3f8-4ab7-a35b-e4eab936546a" name="Changes" comment="" />
+      <created>1649671646703</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649671646703</updated>
+      <workItem from="1649671648276" duration="118000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
