@@ -23,9 +23,9 @@ library(svglite)
 
 # parametry rozdělení
 a = 0
-b = 30
+b = 20
 
-x = seq(-10,40,0.01)
+x = seq(0,20,0.01)
 f = dunif(x,a,b)
 F = punif(x,a,b)
 data = data.frame(x,f,F) # příprava data.frame

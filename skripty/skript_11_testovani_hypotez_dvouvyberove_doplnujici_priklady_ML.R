@@ -41,7 +41,7 @@ data = read_excel("../data/data_dvouvyberove.xlsx",
 data = data %>% 
   filter(system == "WIN"|system == "Linux") %>% 
   droplevels()
-
+getwd()
 #*a) ####
 # Určete bodové odhady a 90% levostranné intervalové odhady středního meziročního
 # (2018-2019) nárustu doby (příp. mediánu nárustu doby) odehrané hráči OS Linux a OS Windows. 

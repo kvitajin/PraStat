@@ -1,0 +1,542 @@
+[
+  {
+    "question": "Jistý supermarket má otevřeno 24h denně. Počet zákazníků v supermarketu během otevírací doby lze popsat náhodnou veličinou s Poissonovým rozdělením.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Distribuční funkce náhodné veličiny XXX v bodě ttt udává pravděpodobnost, že XXX nabývá hodnot menších než ttt. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Rozdělení spojité náhodné veličiny můžeme popsat distribuční funkcí a hustotou pravděpodobnosti.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Post hoc analýza znamená, že stanovíme nejprve hypotézy H0H0H_0, HAHAH_A, a \"následně\" provedeme řešení. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Mannův-Whitneyho test se používá pro ověření shody úrovně ve dvou závislých výběrech.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Je-li ρ(X,Y)=0ρ(X,Y)=0\\rho(X,Y) = 0, pak jsou náhodné veličiny X a Y nekorelované. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Marginální rozdělení popisuje rozdělení jednotlivých složek náhodného vektoru.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Mzdy v ČR mají kladnou šikmost. (V ČR mají zhruba 2/3 lidí podprůměrný plat.)",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Geometrické rozdělení je speciálním případem negativně binomického rozdělení.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Náhodnou veličinu chápeme jako výsledek náhodného pokusu.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Kruskalův-Wallisův test se nazývá rovněž neparametrická ANOVA.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Rozptyl má vždy kladnou hodnotu.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Hustota pravděpodobnosti normální náhodné veličiny je sudá funkce.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Medián je střední hodnota.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Marginální charakteristiky náhodného vektoru popisují vztah mezi náhodnými veličinami, které tvoří jeho složky.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Jedna čtvrtina hodnot je větší než 25 procentní kvantil, zatímco tři čtvrtiny hodnot jsou menší.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Rozdělení pravděpodobnosti diskrétní náhodné veličiny může být dáno výhradně pravděpodobnostní funkcí.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Analýza rozptylu (ANOVA) je test shody rozptylů ve více než dvou výběrech.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Mají-li dvě proměnné stejný průměr a stejný rozptyl, mají stejný variační koeficient.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Je-li cov(X,Y)=0cov(X,Y)=0cov(X,Y) = 0, jsou náhodné veličiny X a Y nekorelované. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Klasická definice pravděpodobnosti vychází ze stability relativních četností.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Distribuční funkce normální náhodné veličiny je tabelována.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Nabývá-li funkce f(x)f(x)f(x) hodnoty 1,3, nemůže jít o hustotu pravděpodobnosti. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Kolmogorovovy axiomy pravděpodobnosti udávají návod ke stanovení pravděpodobnosti elementárních jevů.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Jsou-li náhodné veličiny X a Y nekorelované, jsou lineárně nezávislé.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Má-li náhodná veličina spojitou distribuční funkci, je spojitá.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Diskrétní náhodná veličina může nabývat konečného nebo spočetného množství hodnot.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Sdružené rozdělení popisuje rozdělení náhodného vektoru.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "cov(X,X)=1cov(X,X)=1cov(X,X) = 1. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Je-li X=(X,Y)TX=(X,Y)T\\textbf{X} = (X,Y)^T, pak E(X)=E(XY)E(X)=E(XY)E(\\textbf{X}) = E(XY). ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "cov(X,Y)=E(XY)−E(X)⋅E(Y)cov(X,Y)=E(XY)−E(X)⋅E(Y)cov(X,Y) = E(XY) - E(X)\\cdot E(Y). ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Intenzita poruch (hazardní funkce) je neklesající funkce.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "ρ(X,X)=1ρ(X,X)=1\\rho(X,X) = 1. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Je-li pravděpodobnost jevu AAA rovna 0,75, pak pravděpodobnost podjevu jevu AAA je nejvýše 0,75. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Bartlettův test homoskedasticity lze použít pouze v případě vyváženého třídění.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Exponenciální rozdělení používáme k modelování životnosti výrobků nacházejících se v období stárnutí.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Jedním z předpokladů analýzy rozptylu je alespoň přibližná shoda rozptylů v jednotlivých skupinách.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Jediným předpokladem Leveneho testu je nezávislost výběrů.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Je-li XXX diskrétní náhodná veličina, pak ∑iP(X=xi)=1∑iP(X=xi)=1\\sum_{i}{P(X=x_i)}=1. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Je-li cov(X,Y)=0cov(X,Y)=0cov(X,Y) = 0, pak jsou náhodné veličiny X a Y nezávislé. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Jestliže pravděpodobnosti dvou jevů z jevového pole AA\\mathcal{A} jsou 0,7 a 0,5, pak tyto jevy nejsou disjunktní. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Nejčetnější hodnota v souboru se nazývá medián.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Má-li náhodná veličina normální rozdělení se střední hodnotou μμ\\mu a sm. odchylkou σσ\\sigma, pak přibližně 5 procent hodnot náhodné veličiny leží mimo interval ⟨μ−3σ;μ+3σ⟩⟨μ−3σ;μ+3σ⟩\\langle\\mu-3\\sigma;\\mu+3\\sigma\\rangle. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Při neparametrickém Mannově-Whitneyho testu nemusíme ověřovat žádné předpoklady o výběrech.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "E(XY)=E(X)⋅E(Y)E(XY)=E(X)⋅E(Y)E(XY) = E(X)\\cdot E(Y). ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Bartlettův test je neparametrickým protějškem Leveneho testu.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Exponenciální rozdělení je speciálním případem Weibullova rozdělení.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Posloupnost nezávislých pokusů majících pouze dva možné výsledky se stejnou pravděpodobností úspěchu nazýváme Bernoulliho pokusy.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Geometrický průměr je definován pro proměnné, které nabývají pouze kladných hodnot.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Má-li náhodná veličina normální rozdělení, pak (střední hodnota = medián = modus).",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Pravděpodobnost, že při deseti hodech mincí padne desetkrát po sobě \"panna\" je menší než pravděpodobnost, že při deseti hodech klasickou kostkou padne desetkrát po sobě sudé číslo.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Pascalovo rozdělení je pouze jiný název pro negativně binomické rozdělení.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Weibullovo rozdělení lze použít k modelování životnosti výrobků nacházejících se v libovolném období života.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "cov(X,Y)=cov(Y,X)cov(X,Y)=cov(Y,X)cov(X,Y) = cov(Y,X). ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Počet úspěchů v nnn pokusech lze popsat binomickou náhodnou veličinou. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Normální rozdělení má právě jeden parametr.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Reziduální rozptyl (v analýze rozptylu) lze určit jako aritmetický průměr rozptylů v jednotlivých skupinách.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Oborem hodnot distribuční funkce jsou všechna reálná čísla.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Každý test hypotézy H0:μ1=μ2H0:μ1=μ2H_0 : \\mu_1=\\mu_2, tj. hypotézy o shodě dvou středních hodnot, je testem párovým. ",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Náhodný vektor je definován jako dvourozměrný vektor, jehož složkami jsou náhodné veličiny.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Je-li cov(X,Y)=0cov(X,Y)=0cov(X,Y) = 0, jsou náhodné veličiny X a Y nekorelované. ",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Má-li náhodná veličina normální rozdělení, pak (střední hodnota = medián = modus).",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Medián je střední hodnota.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Jedna čtvrtina hodnot je větší než 25 procentní kvantil, zatímco tři čtvrtiny hodnot jsou menší.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Marginální rozdělení popisuje rozdělení jednotlivých složek náhodného vektoru.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Hustota pravděpodobnosti normální náhodné veličiny je sudá funkce.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Jistý supermarket má otevřeno 24h denně. Počet zákazníků v supermarketu během otevírací doby lze popsat náhodnou veličinou s Poissonovým rozdělením.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Diskrétní náhodná veličina může nabývat konečného nebo spočetného množství hodnot.",
+    "rightAnswer": "Správná odpověď je: Pravda."
+  },
+  {
+    "question": "Bartlettův test je neparametrickým protějškem Leveneho testu.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Nejčetnější hodnota v souboru se nazývá medián.",
+    "rightAnswer": "Správná odpověď je: Nepravda."
+  },
+  {
+    "question": "Neparametrickým protějškem Aspinové-Welchova testu je",
+    "rightAnswer": "Správná odpověď je: Mannův-Whitneyho test."
+  },
+  {
+    "question": "Chceme-li najít nejlepší možný odhad směrodatné odchylky vybrané vlastnosti populace o rozsahu 50 000 jednotek (prvků), pak by rozsah výběru neměl překročit",
+    "rightAnswer": "Správná odpověď je: 2 500 jednotek."
+  },
+  {
+    "question": "Předpokladem pro použití Mannova-Whitneyho testu je",
+    "rightAnswer": "Správná odpověď je: stejný tvar rozdělení obou výběrů."
+  },
+  {
+    "question": "Podmíněná pravděpodobnost P(A|B)P(A|B) je rovna: ",
+    "rightAnswer": "Správná odpověď je: \\dfrac{P(A\\cap B)}{P(B)}, P(B)\\neq 0."
+  },
+  {
+    "question": "Neparametrickým protějškem dvouvýběrového t-testu je ",
+    "rightAnswer": "Správná odpověď je: Mannův-Whitneyho test."
+  },
+  {
+    "question": "Předpokladem pro použití párového ttt-testu je ",
+    "rightAnswer": "Správná odpověď je: normalita diferencí."
+  },
+  {
+    "question": "Pravděpodobnost poruchy každé součástky je ppp. Předpokládejme, že součástky pracují nezávisle na sobě. Určete pravděpodobnost poruchy bloku složeného z 10 paralelně zapojených součástek. (Je-li funkční alespoň jedna součástka, blok funguje.) ",
+    "rightAnswer": "Správná odpověď je: p^{10}."
+  },
+  {
+    "question": "Bylo ověřeno, že hmotnost balení cukru má normální rozdělení. Testujeme-li, zda seřízením výrobní linky došlo ke snížení kolísavosti hmotnosti balení cukru, použijeme",
+    "rightAnswer": "Správná odpověď je: dvouvýběrový F-test (test o shodě rozptylů)."
+  },
+  {
+    "question": "Označte všechny neparametrické (robustní) testy.",
+    "rightAnswer": "Správné odpovědi jsou: Mannův-Whitneyho test, znaménkový test nebo párový Wilcoxonův test"
+  },
+  {
+    "question": "Mějme jevy A a B. Jev C je průnikem jevů A a B. Pravděpodobnost jevu A je P(A) a pravděpodobnost jevů B je P(B). Pravděpodobnost sjednocení jevu B a C vyjádřena pomocí pravděpodobností jevů A a B je rovna: ",
+    "rightAnswer": "Správná odpověď je: P(B)."
+  },
+  {
+    "question": "Výběrový průměr je",
+    "rightAnswer": "Správná odpověď je: náhodná veličina."
+  },
+  {
+    "question": "Mějme nezávislé jevy AAA a BBB. Jev CCC je doplněk jevu AAA. Pravděpodobnost jevu AAA je P(A)P(A)P(A) a pravděpodobnost jevu BBB je P(B)P(B)P(B). Pravděpodobnost průniku jevů BBB a CCC vyjádřena pomocí pravděpodobností jevů AAA a BBB je rovna: ",
+    "rightAnswer": "Správná odpověď je: P(B)\\cdot (1-P(A))."
+  },
+  {
+    "question": "Zvýšíme-li každému zaměstnanci ve firmě plat o 20 procent, průměrný plat ve firmě se zvýší",
+    "rightAnswer": "Správná odpověď je: o 20 procent."
+  },
+  {
+    "question": "Pro srovnání variability váhy a výšky je možné použít",
+    "rightAnswer": "Správná odpověď je: variační koeficient."
+  },
+  {
+    "question": "Několik studentů píše test ze Statistiky s 10 otázkami. Nejhorší výsledek jsou 3 správné odpovědi, nejlepší výsledek je 10 správných odpovědí. Jakou hodnotu má medián?",
+    "rightAnswer": "Správná odpověď je: medián nelze určit, pokud neznáme konkrétní výsledky jednotlivých žáků."
+  },
+  {
+    "question": "Pravděpodobnost poruchy každé součástky je ppp. Předpokládejme, že součástky pracují nezávisle na sobě. Určete pravděpodobnost poruchy bloku složeného z 10 sériově zapojených součástek. (Je-li porouchaná alespoň jedna součástka, blok nefunguje.) ",
+    "rightAnswer": "Správná odpověď je: 1-(1-p)^{10}."
+  },
+  {
+    "question": "Pro bavlněnou přízi je předepsaná horní mez variability pevnosti vlákna. Rozptyl pevnosti (která má normální rozdělení) nemá překročit 0,36. Chceme-li ověřit, zda je důvod k podezření na vyšší variabilitu než je stanoveno, použijeme",
+    "rightAnswer": "Správná odpověď je: test o rozptylu."
+  },
+  {
+    "question": "Představte si, že jste absolvovali normovaný test (např. SCIO test). Měl(a) jste lepší výsledek než 85 studentů ze 100. To znamená, že",
+    "rightAnswer": "Správná odpověď je: patříte do 9. decilu."
+  },
+  {
+    "question": "Mějme disjunktní jevy A a B. Pravděpodobnost jevu A je P(A) a pravděpodobnost jevu B je P(B). Pravděpodobnost průniku jevu A a B je rovna: ",
+    "rightAnswer": "Správná odpověď je: 0."
+  },
+  {
+    "question": "Pro modelování relativní četnosti ve výběru o dostatečném rozsahu je vhodné použít rozdělení",
+    "rightAnswer": "Správná odpověď je: normální."
+  },
+  {
+    "question": "Chceme-li ověřit, zda lze výrobcem udávanou spotřebu 8,8 l/100km považovat za reálnou (bylo testováno 11 automobilů, normalita výběru byla zamítnuta), použijeme",
+    "rightAnswer": "Správná odpověď je: mediánový test nebo Wilcoxonův test."
+  },
+  {
+    "question": "Zvýšíme-li každému zaměstnanci ve firmě plat o 100,- Kč, průměrný plat ve firmě se zvýší",
+    "rightAnswer": "Správná odpověď je: o 100,- Kč."
+  },
+  {
+    "question": "Zvýšíme-li každému zaměstnanci ve firmě plat o 100,- Kč, rozptyl platů ve firmě se zvýší",
+    "rightAnswer": "Správná odpověď je: rozptyl platů se nezmění."
+  },
+  {
+    "question": "Vyberte 3 Kolmogorovovy axiomy pravděpodobnosti.",
+    "rightAnswer": "Správné odpovědi jsou: Pravděpodobnost každého jevu A je nezáporné reálné číslo, Pravděpodobnost jistého jevu \\Omega je rovna jedné, Pravděpodobnost sjednocení konečného počtu vzájemně disjunktních jevů je rovna součtu jejich pravděpodobností"
+  },
+  {
+    "question": "Chceme-li ověřit, zda je průměrná výška dospělé populace v ČR větší než 170 cm (rozsah výběru je 120, byla ověřena normalita výběru), použijeme",
+    "rightAnswer": "Správná odpověď je: test o střední hodnotě (t-test)."
+  },
+  {
+    "question": "Pro modelování průměru výběru dostatečně velkého rozsahu je vhodné použít rozdělení",
+    "rightAnswer": "Správná odpověď je: normální."
+  },
+  {
+    "question": "Představte si, že jste absolvovali normovaný test (např. SCIO test) a že Vám sdělili, že patříte do 91. percentilu. To znamená, že",
+    "rightAnswer": "Správná odpověď je: 90 procent žáků, kteří se podrobili stejnému testu, dosáhlo nižších výsledků než vy."
+  },
+  {
+    "question": "S rostoucím rozsahem výběru se obvykle rozptyl průměru",
+    "rightAnswer": "Správná odpověď je: snižuje."
+  },
+  {
+    "question": "Předpokladem pro použití Wilcoxonova testu je",
+    "rightAnswer": "Správná odpověď je: výběr ze spojitého symetrického rozdělení."
+  },
+  {
+    "question": "Test ze Statistiky píše velké množství studentů. Představte si, že každý z nich odpoví správně přesně na polovinu otázek. V tomto případě bude směrodatná odchylka počtu správných odpovědí",
+    "rightAnswer": "Správná odpověď je: rovna nule."
+  },
+  {
+    "question": "Zamítneme-li na základě ttt-testu nulovou hypotézu, pak lze tvrdit, že rozdíl mezi testovanou hodnotou a průměrem výběrového souboru ",
+    "rightAnswer": "Správná odpověď je: je na dané hladině významnosti statisticky významný."
+  },
+  {
+    "question": "Statistická indukce je",
+    "rightAnswer": "Správná odpověď je: zobecnění statistických výsledků získaných zpracováním výběru na celou populaci."
+  },
+  {
+    "question": "Neparametrickým protějškem párového ttt-testu je ",
+    "rightAnswer": "Správná odpověď je: znaménkový test nebo párový Wilcoxonův test."
+  },
+  {
+    "question": "Lékař Petře sdělil, že patří do 3. percentilu ohledně BMI (Body mass index - poměr váhy (kg) ke kvadrátu výšky (m)). Petra má pravděpodobně",
+    "rightAnswer": "Správná odpověď je: podváhu."
+  },
+  {
+    "question": "Zvýšíme-li každému zaměstnanci ve firmě plat dvojnásobně, průměrný plat ve firmě se zvýší",
+    "rightAnswer": "Správná odpověď je: dvojnásobně."
+  },
+  {
+    "question": "Neparametrické testy mají",
+    "rightAnswer": "Správná odpověď je: menší sílu testu než jejich parametrické protějšky."
+  },
+  {
+    "question": "Chceme-li ověřit, zda lze očekávat, že v prodejně je více než 5 procent konzerv s prošlou záruční lhůtou (v kontrolním vzorku 100 konzerv bylo nalezeno 7 konzerv s prošlou záruční lhůtou), použijeme",
+    "rightAnswer": "Správná odpověď je: test o parametru ππ\\pi binomického rozdělení."
+  },
+  {
+    "question": "Mějme nezávislé jevy AA a BB. Pravděpodobnost jevu AA je P(A)P(A) a pravděpodobnost jevu BB je P(B)P(B). Pravděpodobnost sjednocení jevu AA a BB je rovna: ",
+    "rightAnswer": "Správná odpověď je: P(A)+ P(B)-P(A\\cap B)."
+  },
+  {
+    "question": "Při testování ojetí (mm) pneumatik 11 automobilů určité značky byla zamítnuta normalita ojetí pneumatik (mm). Chceme-li ověřit, zda se pravé a levé přední pneumatiky automobilů této značky ojíždějí srovnatelně, použijeme",
+    "rightAnswer": "Správná odpověď je: znaménkový test nebo párový Wilcoxonův test."
+  },
+  {
+    "question": "Chceme-li najít nejlepší možný odhad směrodatné odchylky vybrané vlastnosti nekonečné populace, měli bychom",
+    "rightAnswer": "Správná odpověď je: použít co možná největší výběrový soubor."
+  },
+  {
+    "question": "Pro modelování rozptylu výběru z normálního rozdělení je vhodné použít rozdělení",
+    "rightAnswer": "Správná odpověď je: Pearsonovo (χ2χ2\\chi^2)."
+  },
+  {
+    "question": "Tabáková firma TAB prohlašuje, že jejich cigarety mají nižší obsah nikotinu než cigarety NIK. Obsah nikotinu byl změřen ve 100 cigaretách TAB a 100 cigaretách NIK. Na základě obou výběrů byla ověřena homoskedasticita obsahů nikotinu v cigaretách TAB a NIK. Bylo ověřeno, že obsah nikotinu v cigaretách má normální rozdělení. Chceme-li ověřit, zda lze tvrzení firmy TAB prohlásit za nepravdivé, použijeme",
+    "rightAnswer": "Správná odpověď je: dvouvýběrový t-test."
+  },
+  {
+    "question": "Zvýšíme-li každému zaměstnanci ve firmě plat dvojnásobně, rozptyl platů ve firmě se zvýší",
+    "rightAnswer": "Správná odpověď je: čtyřnásobně."
+  },
+  {
+    "question": "Předpokladem pro použití testu o parametru \\pi binomického rozdělení je ",
+    "rightAnswer": "Správná odpověď je: dostatečný rozsah výběru (n>9/(p(1-p)), kde p je relativní četnost výskytu sledovaného jevu."
+  },
+  {
+    "question": "Pro modelování poměru rozptylů dvou výběrů z normálního rozdělení je vhodné použít rozdělení",
+    "rightAnswer": "Správná odpověď je: Fisherovo-Snedecorovo."
+  },
+  {
+    "question": "Průměrná mzda je 60 procentní kvantil mzdy. Lze tedy říci, že",
+    "rightAnswer": "Správná odpověď je: medián mzdy je nižší než průměrná mzda."
+  },
+  {
+    "question": "Průměrná mzda je 60 procentní kvantil mzdy. Lze tedy říci, že",
+    "rightAnswer": "Správná odpověď je: mzdy mají kladnou šikmost."
+  },
+  {
+    "question": "Výběrová charakteristika (náhodná veličina), která nabývá hodnot \"blízkých\" hledanému parametru, se nazývá",
+    "rightAnswer": "Správná odpověď je: bodový odhad hledaného parametru."
+  },
+  {
+    "question": "Střední hodnota pevně zvolené náhodné veličiny je",
+    "rightAnswer": "Správná odpověď je: konstanta."
+  },
+  {
+    "question": "Neparametrické testy",
+    "rightAnswer": "Správná odpověď je: nevyžadují znalost rozdělení populace."
+  },
+  {
+    "question": "Spolehlivost odhadu 1−α1−α1-\\alpha je pravděpodobnost toho, že nalezený intervalový odhad ",
+    "rightAnswer": "Správná odpověď je: pokrývá skutečnou hodnotu hledaného parametru."
+  },
+  {
+    "question": "Předpokladem pro použití Aspinové-Welchova testu je",
+    "rightAnswer": "Správná odpověď je: normalita a heteroskedasticita obou výběrů."
+  },
+  {
+    "question": "Hladina významnosti αα\\alpha je pravděpodobnost toho, že nalezený intervalový odhad ",
+    "rightAnswer": "Správná odpověď je: nepokrývá skutečnou hodnotu hledaného parametru."
+  },
+  {
+    "question": "Pro modelování průměru výběru malého rozsahu je vhodné použít rozdělení",
+    "rightAnswer": "Správná odpověď je: Studentovo."
+  },
+  {
+    "question": "Zákon velkých čísel v důsledku říká, že při dostatečném rozsahu výběru",
+    "rightAnswer": "Správná odpověď je: se relativní četnost přibližuje teoretické hodnotě pravděpodobnosti."
+  },
+  {
+    "question": "Největší kumulativní absolutní četnost v množině čísel se rovná",
+    "rightAnswer": "Správná odpověď je: součtu všech absolutních četností."
+  },
+  {
+    "question": "Největší kumulativní relativní četnost se rovná",
+    "rightAnswer": "Správná odpověď je: 1."
+  },
+  {
+    "question": "Zvýšíme-li každému zaměstnanci ve firmě plat o 20 procent, rozptyl platů ve firmě se zvýší",
+    "rightAnswer": "Správná odpověď je: o 44 procent."
+  },
+  {
+    "question": "Označte všechny parametrické testy, tj. testy vyžadující znalost rozdělení populace",
+    "rightAnswer": "Správné odpovědi jsou: test o střední hodnotě (ttt-test), test o rozptylu, test o parametru π\\pi binomického rozdělení"
+  },
+  {
+    "question": "Mějme jevy A a B. Pravděpodobnost jevu A je P(A) a pravděpodobnost jevu B je P(B). Pravděpodobnost sjednocení jevů A a B je rovna: ",
+    "rightAnswer": "Správná odpověď je: P(A)+ P(B)-P(A\\cap B)."
+  },
+  {
+    "question": "Označte všechny parametrické testy, tj. testy vyžadující znalost rozdělení populace",
+    "rightAnswer": "Správné odpovědi jsou: test o střední hodnotě (ttt-test), test o rozptylu, test o parametru π\\pi binomického rozdělení"
+  },
+  {
+    "question": "Pro modelování průměru výběru dostatečně velkého rozsahu je vhodné použít rozdělení",
+    "rightAnswer": "Správná odpověď je: normální."
+  },
+  {
+    "question": "Mějme nezávislé jevy A a B. Pravděpodobnost jevu A je P(A) a pravděpodobnost jevu B je P(B). Pravděpodobnost sjednocení jevu A a B je rovna: ",
+    "rightAnswer": "Správná odpověď je: P(A)+ P(B)-P(A\\cap B)."
+  },
+  {
+    "question": "Pro srovnání variability váhy a výšky je možné použít",
+    "rightAnswer": "Správná odpověď je: variační koeficient."
+  },
+  {
+    "question": "Mějme disjunktní jevy A a B. Pravděpodobnost jevu A je P(A) a pravděpodobnost jevu B je P(B). Pravděpodobnost průniku jevu A a B je rovna: ",
+    "rightAnswer": "Správná odpověď je: 0."
+  }
+]

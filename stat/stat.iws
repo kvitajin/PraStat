@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4e6887-d166-4c75-be1c-33572ef9c5c8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../du31p/du3p.iws" beforeDir="false" afterPath="$PROJECT_DIR$/../du31p/du3p.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../du31p/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../du31p/main.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../du31p/main.rmd" beforeDir="false" afterPath="$PROJECT_DIR$/../du31p/main.rmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../skripty/.idea/rAvailablePackageCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/.idea/rAvailablePackageCache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../skripty/.idea/rGraphicsSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/.idea/rGraphicsSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../skripty/skript_4_rozdeleni_DNV_vychytavky.R" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/skript_4_rozdeleni_DNV_vychytavky.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../skripty/skript_6_EDA_Rozsireny.R" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/skript_6_EDA_Rozsireny.R" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test/main.rmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../data/data_ver220516A.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../data/data_ver220523A.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../data/data_zkouska_vzor.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../skripty/sd_round.R" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../skripty/test2.r" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../skripty/test2_1.R" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../skripty/vzorova_zkouska.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skripty/skript_11_testovani_hypotez_dvouvyberove_doplnujici_priklady_ML.R" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/skript_11_testovani_hypotez_dvouvyberove_doplnujici_priklady_ML.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skripty/skript_5_rozdeleni_SNV_doplnujici_priklady_s_obr_ML.R" beforeDir="false" afterPath="$PROJECT_DIR$/../skripty/skript_5_rozdeleni_SNV_doplnujici_priklady_s_obr_ML.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/main.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.rmd" beforeDir="false" afterPath="$PROJECT_DIR$/main.rmd" afterDir="false" />
     </list>
@@ -67,6 +70,10 @@
       <workItem from="1650979546922" duration="32000" />
       <workItem from="1651410967702" duration="16849000" />
       <workItem from="1651580327944" duration="535000" />
+      <workItem from="1652031394068" duration="7546000" />
+      <workItem from="1653291049078" duration="265000" />
+      <workItem from="1653859390261" duration="236000" />
+      <workItem from="1654188509336" duration="673000" />
     </task>
     <servers />
   </component>

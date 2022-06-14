@@ -1,0 +1,438 @@
+---
+title: "Test 30.05.2022"
+author: "Jindřich Kvita"
+output:
+  pdf_document:
+  latex_engine: xelatex
+lang: cs
+documentclass: scrreprt
+header-includes: \usepackage[makeroom]{cancel}
+---
+
+Doba (v měsících), kterou potřebuje realitní makléř k prodeji jedné nemovitosti, se řídí normálním rozdělením se střední hodnotou 4 měsíce a směrodatnou odchylkou 1 měsíc.
+>a) Načrtněte distribuční funkci doby potřebné k prodeji nemovitosti. (1b)
+```{r, warning = FALSE}
+library(ggplot2)
+
+# parametry rozdělení
+mu = 49.7
+sigma = 3.6
+
+x = seq(mu-3.5*sigma,mu+3.5*sigma,0.01)
+f = dnorm(x,mu,sigma)
+F = pnorm(x,mu,sigma)
+data = data.frame(x,f) # příprava data.frame
+
+# Generování grafu hustoty pravděpodobností
+ggplot(data = data, aes(x = x, y = f)) +
+  geom_line() +
+  theme_bw() +
+  labs(x="prodej nemovisoti",
+       y = "hustota p-sti")
+# Generování grafu DISTRIBUČNÍ FUNKCE
+ggplot(data = data, aes(x = x, y = F)) +
+  geom_line() +
+  theme_bw() +
+  labs(x="prodej nemovisoti",
+       y = "distribuční funkce")
+
+# b)
+# P(X>=6)
+b_vysledek<-pnorm(53,mu,sigma)
+
+#c)
+
+c_vysledek<-pnorm(6,mu,sigma)-pnorm(4,mu,sigma)
+qnorm(0.95, mu, sigma)
+
+
+
+
+
+```
+>b) Pokud makléř nezvládne prodat nemovitost do půl roku, bude mu sražena provize z prodeje. Jaká je pravděpodobnost, že mu bude udělena srážka z provize u náhodně vybrané nemovitosti, jejíž prodej má zrovna na starost? Výsledek zaznačte do náčrtku distribuční funkce z bodu a). (2b)
+
+pravděpodobost je `r b_vysledek`
+
+>c) Jaká je pravděpodobnost, že makléř stihne nemovitost prodat aniž by mu byla sražena provize, jestliže už uběhly 4 měsíce a nemovitost stále neprodal? (3b)
+
+pravděpodobost je `r c_vysledek`
+
+>d) Jaká je pravděpodobnost, že u 20 náhodně vybraných nemovitostí bude průměrná doba potřebná k prodeji nemovitosti menší než 3,5 měsíce? (4b)
+
+
+
+
+
+
+
+
+
+
+# Zadání B
+
+```{r setup, echo = FALSE, include = FALSE, warning = FALSE}
+library(readxl)
+library(dplyr)
+library(rstatix)
+library(lawstat)
+library(FSA)
+library(data.table)
+library(jsonlite)
+library(purrr)
+library(lawstat)
+
+# načtení dat
+file_path <- "~/Codes/PS/data/data_ver220530B.xlsx"
+data <- read_excel(file_path)
+
+```
+## 4. Úloha
+Analyzujte počáteční hmotnost probandůzařazených do skupin KETO+HIIT a KONTROL.
+Obsahují-li data odlehlá pozorování, do analýzy je nezařazujte. Nezapomeňte na ověření předpokladů pro použití metod statistické indukce.
+
+>a) Pro probandy ze skupiny KETO+HIIT a skupiny KONTROL určete bodové a 95% oboustranné intervalové odhady střední hodnoty, popř. mediánu, počáteční hmotnosti. Výsledek pro probandy ze skupiny KETO+HIIT interpretujte. (3b)
+```{r, warning = FALSE}
+data_zacatek_op <-
+        data %>%
+                group_by(skupina) %>%
+                identify_outliers(m0)
+
+data_bez_op <- data %>%
+        filter(!(ID %in% data_zacatek_op$ID))
+
+boxplot(data_bez_op$m0[data_bez_op$skupina=="KETO+HIIT"],
+        data_bez_op$m0[data_bez_op$skupina=="KONTROL"] )
+zacatek_shapiro <- tapply(data_bez_op$m0, data_bez_op$skupina, shapiro.test)
+# byla splněna  normalita
+bodovKh<-mean(data_bez_op$m0[data_bez_op$skupina == "KETO+HIIT"], na.rm=T)
+bodovKo<-mean(data_bez_op$m0[data_bez_op$skupina == "KONTROL"], na.rm=T)
+khttest<-t.test(data_bez_op$m0[data_bez_op$skupina == "KETO+HIIT"],
+       conf.level = 0.95,
+       alternative = "two.sided")
+kottest<-t.test(data_bez_op$m0[data_bez_op$skupina == "KONTROL"],
+       conf.level = 0.95,
+       alternative = "two.sided")
+
+# pokud by nebyla normalita, tak
+bodovKhNe<-median(data_bez_op$m0[data_bez_op$skupina == "KETO+HIIT"], na.rm=T)
+bodovKoNe<-median(data_bez_op$m0[data_bez_op$skupina == "KONTROL"], na.rm=T)
+sysKo<-symmetry.test(data_bez_op$m0[data_bez_op$skupina == "KONTROL"], boot = FALSE) # Testování symetrie pro pokles hodnot u výrobce "A" <- tu je podle p hodnoty symetricke, takze wilcox
+wilcox_int_f$Amber <- wilcox_results$Amber$conf.int
+
+
+
+
+
+```
+
+[//]: # ( todo: dodat v datasetu byla odlehlá pozorování, která byla pro další zpracování odstraněna)
+| Skupina   | Shapirův-Willkův test (p-hodnota)                    |
+|-----------|------------------------------------------------------|
+| KETO+HIIT | `r sprintf("%.3f", 0.2004463)`                       |
+| KONTROL   | `r sprintf("%.3f", zacatek_shapiro$KONTROL$p.value)` |
+
+Na základě Shapiro-Wilkova testu na hladině významnosti 5 % nezamítáme nulovou hypotézu o normálním rozdělení datových souborů.
+
+Bodovým odhadem  počáteční hmotnosti pro KETO+HIIT je `r bodovKh`Kg a pro KONTROL `r bodovKo` Kg.
+#todo: chybí jednotky!!, přidat do tabulky průměr / bodový odhad střední hodnoty (podle toho, co bude zrovna lepší)
+
+95% oboustranným intervalovým odhadem je:
+
+| Skupina       | 95% Intervalový odhad středních hodnot |
+|---------------|--------------------------------------|
+| KETO+HIIT     | `r sprintf("(%.3f; %.3f)", khttest$conf.int[1], khttest$conf.int[2])` |
+| KONTROL       | `r sprintf("(%.3f; %.3f)", kottest$conf.int[1], kottest$conf.int[2])` |
+
+
+Průměrná hmotnst ze skupiny keto+hiit je 85.2 Kg, 95% IO je `r sprintf("(%.3f; %.3f)", khttest$conf.int[1], khttest$conf.int[2])`Kg.
+
+u mediánů: polovina probandů má počáteční hmotnostimenší, než xyz, 95% IO tohoto mediánu je (ac, def) Kg.
+
+>b) Pro probandy ze skupiny KETO+HIIT určete, zda se pozorovaná počáteční hmotnost, popř. medián počáteční hmotnosti, statisticky významně liší od 83,5 kg. K ověření využijte intervalový odhad i příslušný čistý test významnosti. (3b)
+```{r, warning = FALSE}
+bttest<-t.test(data_bez_op$m0[data_bez_op$skupina=="KETO+HIIT"],
+               conf.level = 0.95,
+               mu=83.5,
+               alternative = "two.sided")
+```
+Na hladině významnosti 95 % se dle intervalového odhahu (`r sprintf("(%.2f; %.2f)", bttest$conf.int[1], bttest$conf.int[2])`) váha probandů KETO+HIIT statisticky významně neliší od 83.5kg. Stejné potvrzuje i p-hodnota čistého testu (`r sprintf("%.3f", bttest$p.value)`).
+
+>c) Na hladině významnosti 5 % určete, zda se střední hodnota, popř. medián, počáteční hmotnosti pro probandy ze skupiny KETO+HIIT a pro probandy ze skupiny KONTROL statisticky významně liší. Pro ověření použijte příslušný intervalový odhad. (4b)
+
+```{r, warning = FALSE}
+cvtest<-var.test(data_bez_op$m0[data_bez_op$skupina == "KETO+HIIT"],
+                 data_bez_op$m0[data_bez_op$skupina == "KONTROL"],
+                 ration=1, alternative = "two.sided", conf.level = 0.95)
+cttest<- t.test(data_bez_op$m0[data_bez_op$skupina == "KETO+HIIT"],
+                data_bez_op$m0[data_bez_op$skupina == "KONTROL"],
+                conf.level = 0.95, alternative = "two.sided", var.equal = T
+    )
+```
+Na základě testu shody rozptylů s p-hodnotou `r sprintf("%.3f", cvtest$p.value)` na hladině významnosti 95 % nezamítáme nulovou hypotézu.
+Test intervalového odhadu ukazuje na hladině významnosti 95 %, s p-hodnotou `r sprintf("%.3f", cttest$p.value)`, že se probandi KETO+HIIT a KONTROL statisticky od sebe neliší.
+
+## 5. úloha
+Na hladině významnosti 5 % rozhodněte, zda existuje statisticky významný rozdíl mezi středními hodnotami, popř. mediány, koncové hmotnosti probandů v rámci skupin, do nichž byli probandi zařazeni. Pokud ano, zjistěte, zda lze některé skupiny probandů z hlediska střední hodnoty,popř. mediánu, koncové hmotnosti označit za homogenní a skupiny probandů případně dle sledovaného parametru a výsledků post-hoc analýzy seřadťe sestupně. Obsahují-li data odlehlá pozorování, do analýzy je nezařazujte. Nezapomeňte ověřit předpoklady pro použití zvoleného testu. Poznámka: V tomto příkladu do srovnání zařad’te všechny analyzované skupiny probandů (KETO, HIIT, KETO+HIIT, KONTROL). (10b)
+
+TODO: data (ne) obsahují odlehlá pozorování a byla vyřazena z dalšího zpracování.
+```{r, warning = FALSE}
+# nalezení odlehlých pozorování
+data_m1_op <-
+        data %>%
+                group_by(skupina) %>%
+                identify_outliers(m1)
+
+# odfiltrování odlehlých hodnot
+data_bez_op <- data %>%
+        filter(!(ID %in% data_m1_op$ID))
+
+# test normálního rozdělení
+shapiro <- tapply(data_bez_op$m1, data_bez_op$skupina, shapiro.test)
+
+# test shody rozptylů
+bartlet<- bartlett.test(data_bez_op$m1 ~ data_bez_op$skupina)
+# Dle výsledku Bartlettova testu (p hodnota= DOPLNIT)  na hladině významnosti 5 % zamítáme shodu rozptylů.
+
+# Kvůli zamítnutí shody rozptylů bude použit Kruskal-Wallisův test pro shodu mediánů
+
+# shoda rozptylů: NE ----> Kruska-Wallis
+ kruskal.test(data_bez_op$m1 ~ data_bez_op$skupina)
+# VÝSLEDEK: zamítáme hypotézu o shodě MEDIÁNŮ
+# Na základě p hodnoty menší, než 0.05 zamítáme na hladině významnosti 5% shodu o rozptylu mediánů.
+
+# seřazení podle mediánu
+data_bez_op %>%
+        group_by(skupina) %>%
+        summarize(median = median(m1)) %>%
+        arrange(desc(median))
+# VÝSLEDEK:
+# 1. KONTROL
+# 2. HIIT
+# 3. KETO
+# 4. KETO+HIIT
+# Na základě
+# analýza toho, které se vzájemně liší
+dun <- dunnTest(m1 ~ skupina, data = data_bez_op, method = "bonferroni")
+# VÝSLEDEK:
+# KETO - KETO+HIIT stejné, všechny ostatní nehomogenní
+
+# CELKOVÝ VÝSLEDEK:
+# VÝSLEDEK:
+# 1. KONTROL
+# 2. HIIT
+# 3. KETO/KETO+HIIT (homogenní)
+```
+
+| skupina   | p-hodnota                                |
+|-----------|------------------------------------------|
+| HIIT      | `r sprintf("%.3f", shapiro$HIIT$p.value)` |
+| KETO      | `r sprintf("%.3f", shapiro$KETO$p.value)` |
+| KETO+HIIT | `r sprintf("%.3f", 0.1137016)`           |
+| KONTROL   | `r sprintf("%.3f", shapiro$KONTROL$p.value)` |
+
+Jelikož jsou P-hodnoty všech skupin větší než 0.05, nelze zamítnout nulovou hypotézu a lze rozdělení všech skupin modelovat pomocí normálního rozdělení.
+
+| - | KONTROL | HIIT | KETO | KETO+HIIT |
+| --- | --- | --- | --- |-----------|
+| KONTROL   | - | <0.001 | <0.001 | <0.001    |
+| HIIT      | - | - | <0.001 | <0.001    |
+| KETO      | - | - | - | 1.000     |
+| KETO+HIIT | - | - | - | -         |
+
+Dle Dunnové post-hoc analýzy jee najevo, že pouze skupiny KETO a KETO+HIIT se statisticky významně neliší. Po seřazení dle velikosti mediánů hodnotím sestupně výlsedky skupin takto:
+
+1. KONTROL
+2. HIIT
+3. KETO/KETO+HIIT (homogenní)
+
+
+# Zadání A
+```{r, echo = FALSE, include = FALSE, warning = FALSE}
+# načtení dat
+file_path <- "data_ver220530A.xlsx"
+dataA <- read_excel(file_path)
+dataA <- dataA %>%
+  mutate(zlepseni = BMI0-BMI1)
+```
+## 4. úloha
+Analyzujte pokles BMI (tj. BMI.0-BMI.1) probandů zařazených do skupin KETO a KONTROL.
+Obsahují-li data odlehlá pozorování, do analýzy je nezařazujte. Nezapomeňte na ověření
+předpokladů pro použití metod statistické indukce.
+
+> a) Pro probandy ze skupiny KETO a skupiny KONTROL určete bodové a 95% levostranné
+intervalové odhady střední hodnoty, popř. mediánu, poklesu BMI. Výsledek pro probandy
+ze skupiny KETO interpretujte. (3b)
+```{r, warning = FALSE}
+a_zacatek_op <-
+  dataA %>%
+    group_by(skupina) %>%
+    identify_outliers(zlepseni)
+
+a_data_bez_op <- dataA %>%
+  filter(!(ID %in% a_zacatek_op$ID))
+
+boxplot(a_data_bez_op$zlepseni[a_data_bez_op$skupina=="KETO"],
+        a_data_bez_op$zlepseni[a_data_bez_op$skupina=="KONTROL"] )
+a_shapiro <- tapply(a_data_bez_op$zlepseni, a_data_bez_op$skupina, shapiro.test)
+
+
+a_bodovKe<-mean(a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KETO"], na.rm=T)
+a_bodovKo<-mean(a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KONTROL"], na.rm=T)
+a_kettest<-t.test(a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KETO"],
+                conf.level = 0.95,
+                alternative = "greater")
+a_kottest<-t.test(a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KONTROL"],
+                conf.level = 0.95,
+                alternative = "greater")
+
+
+```
+| skupina   | p-hodnota                                      |
+|-----------|------------------------------------------------|
+| HIIT      | `r sprintf("%.3f", a_shapiro$HIIT$p.value)`    |
+| KETO      | `r sprintf("%.3f", a_shapiro$KETO$p.value)`    |
+| KETO+HIIT | `r sprintf("%.3f", 0.08569053)`                |
+| KONTROL   | `r sprintf("%.3f", a_shapiro$KONTROL$p.value)` |
+Na základě Shapiro Silkova testu na hladině významnosti 5% nezamítáme normalitu
+Bodovým odhadem pro KETO je `r a_bodovKe` a pro KONTROL `r a_bodovKo`.
+
+95% oboustranným intervalovým odhadem je:
+
+| Skupina       | 95% Intervalový odhad středních hodnot |
+|---------------|---------------|
+| KETO    | `r sprintf("(%.3f; %.3f)", a_kettest$conf.int[1], a_kettest$conf.int[2])` |
+| KONTROL       | `r sprintf("(%.3f; %.3f)", a_kottest$conf.int[1], a_kottest$conf.int[2])` |
+
+> b) Pro probandy ze skupiny KETO určete, zda je pozorovaný průměrný pokles BMI, popř.
+medián poklesu BMI, statisticky významný. K ověření využijte intervalový odhad i příslušný
+čistý test významnosti. (3b)
+```{r, warning = FALSE}
+a_bttest<-t.test(a_data_bez_op$zlepseni[a_data_bez_op$skupina=="KETO"],
+               conf.level = 0.95,
+               mu=0,
+               alternative = "two.sided")
+```
+Na hladině významnosti 95 % se dle intervalového odhahu (`r sprintf("(%.2f; %.2f)", a_bttest$conf.int[1], a_bttest$conf.int[2])`) pokles váhy probandů KETO není statisticky významný. Stejné potvrzuje i p-hodnota čistého testu (`r sprintf("%.3f", a_bttest$p.value)`).
+
+(PS. zde je na zvážení, jestli nepoužít jen levostranný, když se řeší pokles, pak by to bylo greather místo two.sided
+
+> c) Na hladině významnosti 5 % určete, zda se střední hodnota, popř. medián, poklesu BMI pro
+probandy ze skupin KETO a KONTROL statisticky významně liší. Pro ověření použijte
+příslušný čistý test významnosti. (4b)
+
+```{r, warning = FALSE}
+a_cvtest<-var.test(a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KETO"],
+                 a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KONTROL"],
+                 ration=1, alternative = "two.sided", conf.level = 0.95)
+a_cttest<- t.test(a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KETO"],
+                a_data_bez_op$zlepseni[a_data_bez_op$skupina == "KONTROL"],
+                conf.level = 0.95, alternative = "two.sided", var.equal = T
+)
+```
+Na základě testu shody rozptylů s p-hodnotou `r sprintf("%.3f", a_cvtest$p.value)` na hladině významnosti 95 % nezamítáme nulovou hypotézu.
+na základě čistého testu významnosti a z něj vyplývající p hodnoty `r sprintf("%.3f", a_cttest$p.value)` zamítáme nulovou hypotézu a skupiny se tak významně liší.
+
+
+Dle
+
+## 5. úloha
+Definujte novou dichotomickou proměnnou (ZMENA.kat, varianty proměnné: ANO, NE), která
+bude definovat, zda u probanda došlo během tří měsíců k poklesu BMI o více než 2,5 kg/m2.
+Následně ověřte, zda existuje statisticky významný vliv typu změny chování probandů na pokles
+BMI o více než 2,5 kg/m2, tj. srovnejte přítomnost poklesu BMI o více než 2,5 kg/m2 u probandů
+ze skupiny KETO a skupiny HIIT. Nezapomeˇnte na ověření předpokladů pro použití metod
+statistické indukce.
+
+```{r, warning = FALSE}
+dataA <- dataA %>%
+  mutate(ZMENA.kat = ifelse(zlepseni > 2.5, "ANO", "NE")) %>%
+  select(ID, skupina, zlepseni, "ZMENA.kat")
+
+#da se preskocit, je o ulohu vys
+a_zacatek_op <-
+  dataA %>%
+    group_by(skupina) %>%
+    identify_outliers(zlepseni)
+
+a_data_bez_op <- dataA %>%
+  filter(!(ID %in% a_zacatek_op$ID))
+#konec preskoku
+# POZOR, tady se odlehlá pozorvoání nedělají!!!
+dataVyhozene <- dataA %>%
+  filter(!(ID %in% a_data_bez_op$ID)) %>%
+  filter(skupina %in% c("KETO", "HIIT")) %>% droplevels()
+dataVyhozene
+asoc_tabulka <- a_data_bez_op %>%
+  group_by(skupina) %>%
+  summarise(celkem = length(ID),
+            pokles_ano = length(ZMENA.kat[ZMENA.kat == "ANO"]),
+            pokles_ne = length(ZMENA.kat[ZMENA.kat == "NE"]),
+            pokles_ano_procent = pokles_ano / celkem * 100,
+            pokles_ne_procent = pokles_ne / celkem * 100,
+            pokles_ano_fmt = sprintf("%d (%0.1f %%)", pokles_ano, pokles_ano_procent),
+            pokles_ne_fmt = sprintf("%d (%0.1f %%)", pokles_ne, pokles_ne_procent)
+  )
+asoc_tabulka_celkem <- asoc_tabulka %>%
+  summarise(pokles_ano_celkem = sum(pokles_ano[1], pokles_ano[2]),
+            pokles_ne_celkem = sum(pokles_ne[1], pokles_ano[2]),
+            pokles_ano_procent_celkem = pokles_ano_celkem / sum(celkem) * 100,
+            pokles_ne_procent_celkem = pokles_ne_celkem / sum(celkem) * 100,
+            pokles_ano_celkem_fmt = sprintf("%d (%0.1f %%)", pokles_ano_celkem, pokles_ano_procent_celkem),
+            pokles_ne_celkem_fmt = sprintf("%d (%0.1f %%)", pokles_ne_celkem, pokles_ne_procent_celkem)
+  )
+
+
+```
+
+
+> a) Uveďte asociační tabulku vhodnou pro analýzu závislosti neexistence poklesu BMI o více
+než 2,5 kg/m2 na skupině (KETO vs. HIIT), do níž byli probandi zařazeni. Tabulku rozšiřte
+o řádkové relativní četnosti. (2b)
+
+POZOR, mám přehozenou neexistenci a existenci
+
+| skupina/četnosti            | neexistence poklesu (NE)                     | neexistence poklesu (ANO)                     | celkem                       |
+|-----------------------------|----------------------------------------------|-----------------------------------------------|------------------------------|
+| `r asoc_tabulka$skupina[1]` | `r asoc_tabulka$pokles_ne_fmt[1]`            | `r asoc_tabulka$pokles_ano_fmt[1]`            | `r asoc_tabulka$celkem[1]`   |
+| `r asoc_tabulka$skupina[2]` | `r asoc_tabulka$pokles_ne_fmt[2]`            | `r asoc_tabulka$pokles_ano_fmt[2]`            | `r asoc_tabulka$celkem[2]`   |
+| celkem                      | `r asoc_tabulka_celkem$pokles_ne_celkem_fmt` | `r asoc_tabulka_celkem$pokles_ano_celkem_fmt` | `r sum(asoc_tabulka$celkem)` |
+
+
+> b) Načrtněte graf pro vizualizaci dané závislosti (korespondující s tabulkou uvedenou v bodě
+a)) a na základě asociační tabulky, daného grafu a vhodné míry kontingence interpretujte
+závěry, k nimž jste ohledně sledované závislosti došli. (2b)
+
+
+kramerovo V, 5e39m y8vislos, yd8 se, že je silná, středně silná, slabá,..
+
+```{r, warning = FALSE}
+# lab <- factor(c(asoc_tabulka$skupina[1], asoc_tabulka$skupina[2]))
+# levels(lab)
+#
+# a_data_bez_op$ZMENA.kat = factor(a_data_bez_op$ZMENA.kat)
+
+
+# kont.tab<-matrix(c(asoc_tabulka$pokles_ne_fmt[1], asoc_tabulka$pokles_ano_fmt[1],
+#                    asoc_tabulka$pokles_ne_fmt[2], asoc_tabulka$pokles_ano_fmt[2]),
+#                  byrow = T,nrow = 2)
+# kont.tab <- as.table(kont.tab)
+# rownames(kont.tab)<- c(asoc_tabulka$skupina[1], asoc_tabulka$skupina[2])
+# colnames(kont.tab)<- c("neexistence poklesu (ANO)", "neexistence poklesu (NE)")
+# kont.tab <- as.table(kont.tab)
+#
+# kont.tab
+# kont.tab.tmp=as.data.frame(kont.tab)
+# mosaicplot(kont.tab,
+#            las = 1,
+#            color = gray.colors(5))
+
+
+```
+> c) Určete bodový a 95% oboustranný intervalový odhad rizika, že po 3 měsících užívání KETO
+diety nedojde k poklesu BMI o více než 2,5 kg/m2. Výsledek interpretujte. (3b)
+
+
+> d) Na hladině významnosti 5 % rozhodněte, zda je pozorovaná závislost statisticky významná.
+Pro ověření výzkumné hypotézy použijte odhad příslušného relativního rizika. (Doplňte
+interpretaci bodového a 95% intervalového odhadu relativního rizika.) (3b)

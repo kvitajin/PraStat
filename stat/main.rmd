@@ -36,9 +36,9 @@ Jméno cvičící/cvičícího: & Tereza Kovářová\\
 \hline
 &Datum odevzdání&Hodnocení\\
 \hline
-Domácí úkol 1: & & \\
+Domácí úkol 1: & & 4/4?\\
 \hline
-Domácí úkol 2: & & \\
+Domácí úkol 2: & & 6,5/7\\
 \hline
 Domácí úkol 3: & & \\
 \hline
@@ -470,7 +470,7 @@ symmetry_p_f <- lapply(
 
 Dle Shapiro-Wilkova testu, u  výrobce Amber, na hladině významnosti 5% normalitu nezamítáme. U výrobce Bright ji na stejné hladině významnosti zamítáme. Z tohoto důvodu (a aby bylo možné dále výrobce mezi sebou poronávat), bude u obou výrobců využito neparametrických testů.
 
-Dále byl použit levostranný intervalový oddhat a test významnosti mediánů pro oba výrobce. Test významnosti byl proveden pomocí Wilcoxonova testu.
+Dále byl použit levostranný intervalový odhad a test významnosti mediánů pro oba výrobce. Test významnosti byl proveden pomocí Wilcoxonova testu.
 
 ```{r, include = FALSE}
 median_results <- tapply(dataOP$pokles, dataOP$brand, median, 0.5)
@@ -556,9 +556,148 @@ Na hladině významnosti 5 % rozhodněte, zda se světelný tok zářivek při t
 
 a) Daný problém vhodným způsobem graficky prezentujte (vícenásobný krabicový graf, histogramy, q-q grafy). Srovnání okomentujte (včetně informace o případné manipulaci s datovým souborem).
 
+```{r, echo = FALSE, include = FALSE, warning = FALSE,}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(rstatix)
+
+file_path <- "ukol_68.xlsx"
+measurements_by_sheet <- lapply(excel_sheets(file_path), function(sheet) read_excel(file_path, sheet))
+names(measurements_by_sheet) <- excel_sheets(file_path)
+measurements <- bind_rows(measurements_by_sheet, .id = "brand")
+colnames(measurements) <- c("brand", "id", "tok_22_og", "tok_5_og")
+
+outliers <-
+  measurements %>%
+    group_by(brand) %>%
+    identify_outliers(tok_5_og)
+
+measurements$tok_22 <- ifelse(measurements$id %in% outliers$id,NA, measurements$tok_22_og)
+measurements$tok_5 <- ifelse(measurements$id %in% outliers$id,NA, measurements$tok_5_og)
+```
+
+```{r, include = FALSE}
+krabicovy_graf_og <-
+  ggplot(measurements, aes(x = brand, y = tok_5_og))+
+    stat_boxplot(geom = "errorbar", width = 0.15)+
+    geom_boxplot()+
+    labs(x = "", y = "Světelný tok při teplotě 5 °C (lm)", caption = "(data z původního datasetu)")+
+    theme(axis.text = element_text(color = "black", size = 11))
+
+krabicovy_graf <-
+  ggplot(measurements, aes(x = brand, y = tok_5))+
+    stat_boxplot(geom = "errorbar", width = 0.15)+
+    geom_boxplot()+
+    labs(x = "", y = "Světelný tok při teplotě 5 °C (lm)", caption = "(data bez odlehlých pozorování)")+
+    theme(axis.text = element_text(color = "black", size = 11))
+
+histogram <-
+  ggplot(measurements, aes(x = tok_5))+
+    geom_histogram(aes(y = ..density..), color = "black", fill = "grey55", binwidth = 6)+
+    geom_density()+
+    labs(x = "Světelný tok zářivek při teplotě 5 °C (lm)",
+         y = "Hustota pravděpodobnosti")+
+    theme(axis.text = element_text(color = "black", size = 11))+
+    facet_wrap("brand", ncol = 1)
+
+qq_graf <-
+  ggplot(measurements, aes(sample = tok_5))+
+    stat_qq()+
+    stat_qq_line()+
+    labs(x = "Teoretické normované kvantily", y = "Výběrové kvantily")+
+    theme(axis.text = element_text(color = "black", size = 11))+
+    facet_wrap("brand", ncol = 1, scales = "free")
+```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Krabicové grafy světelného toku zářivek (lm) při teplotě 5 °C dle výrobce", fig.height = 6}
+library(ggpubr)
+ggarrange(krabicovy_graf_og, krabicovy_graf, ncol = 1, nrow = 2)
+```
+
+```{r, echo = FALSE, warning = FALSE, fig.cap = "Světelný tok zářivek (lm) při teplotě 5 °C dle výrobce (Histogram/Q-Q graf)"}
+library(ggpubr)
+ggarrange(histogram, qq_graf, ncol = 2, nrow = 1, widths = c(3, 2))
+```
+Tyto grafy pochází z původního datasetu, tj. zde se nachází i odlehlá pozorování všech výrobců. Dle Vizuálního zhodnocení histogramů se zdá, že Bright a Clear nebudou mít normální rozdělení.
+
+\newpage
+
 b) Ověřte normalitu a symetrii světelného toku zářivek při teplotě 5°C u všech čtyř výrobců (empiricky i exaktně).
 
+```{r, echo = FALSE, message = FALSE}
+library(moments)
+library(kableExtra)
+library(dplyr)
+
+ukazatele_rozdeleni <-
+  measurements %>%
+    group_by(brand) %>%
+    summarise(
+      sikmost = skewness(tok_5, na.rm = TRUE),
+      spicatost = kurtosis(tok_5, na.rm = TRUE) - 3,
+      shapiro = shapiro.test(tok_5)$p.value,
+      symetrie = symmetry.test(tok_5)$p.value,
+      rozptyl = var(tok_5, na.rm = TRUE)
+    )
+
+ukazatele_rozdeleni_f <-
+  ukazatele_rozdeleni %>%
+    mutate(
+      sikmost = round(sikmost, 1),
+      spicatost = round(spicatost, 1),
+      shapiro = round(shapiro, 3),
+      symetrie = round(symetrie, 3)
+    )
+
+ukazatele_rozdeleni_f %>%
+  select(brand, sikmost, spicatost, shapiro, symetrie) %>%
+  kbl(booktabs = TRUE,
+      align = "c",
+      caption = "Ověření normality a symetrie světelného toku zářivek (lm) při teplotě 5 °C u všech výrobců",
+      col.names = c(
+        "",
+        "šikmost",
+        "špičatost",
+        "Shapirův-Wilkův test (p-hodnota)",
+        "Test symetrie (p-hodnota)")) %>%
+  kable_styling(full_width = TRUE, latex_options = "striped") %>%
+  column_spec(1, bold = TRUE) %>%
+  row_spec(0, bold = TRUE)
+```
+Dle Shapiro-Wilkova testu, na hladině významnosti 5% zamítáme nulovou hypotézu o normálním rozdělení u výrobce Bright. Dle šikmosti a špičatosti lze určit, že se však jedná o symetrické rozdělení.
+
 c) Ověřte homoskedasticitu (shodu rozptylů) světelného toku zářivek při teplotě 5 °C jednotlivých výrobců (empiricky i exaktně).
+
+```{r, echo = FALSE, include = FALSE, warning = FALSE, message = FALSE}
+library(car)
+library(broom)
+library(purrr)
+
+pomer_rozptylu <- max(ukazatele_rozdeleni$rozptyl) / min(ukazatele_rozdeleni$rozptyl)
+pomer_rozptylu_f <- round(pomer_rozptylu, 1)
+
+levene_res <- leveneTest(tok_5 ~ brand, data = measurements, na.rm = TRUE, center = "median")
+levene_res_p <- levene_res$`Pr(>F)`[1]
+levene_res_p_f <- format.pval(levene_res_p, digits = 3, nsmall = 3)
+
+kruskal_res <- kruskal.test(tok_5 ~ brand, data = measurements)
+kruskal_res_p <- kruskal_res$p.value
+kruskal_res_p_f <- format.pval(kruskal_res_p, digits = 3, nsmall = 3, eps = 0.001)
+
+wilcox_intervals <- map_df(tapply(
+  measurements$tok_5,
+  measurements$brand,
+  wilcox.test,
+  alternative = "two.sided",
+  conf.level = 0.95,
+  conf.int = TRUE,
+  na.rm = TRUE
+), tidy)
+```
+
+Dle krabicových grafů a poměru největšího a nejmenšího rozptylu světelného toku  (`r pomer_rozptylu_f`$) nezamítáme shodu rozptylů. Na základě Levenova testu, kde p-hodnota = `r levene_res_p_f` nelamítáme předpoklad  shodě rozptylů
+
 
 d) Určete bodové a 95% intervalové odhady střední hodnoty (popř. mediánu) světelného toku zářivek při teplotě 5°C pro všechny srovnávané výrobce. (Nezapomeňte na ověření předpokladů pro použití příslušných intervalových odhadů.)
 
